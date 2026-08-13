@@ -750,12 +750,20 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
 .contact-card a,.contact-card p{font-size:15.5px;font-weight:600;color:var(--ink);}
 .contact-card a:hover{color:var(--accent-dark);}
 
+.map-media{aspect-ratio:21/9;}
 .map-frame{
   width:100%;height:100%;
   min-height:340px;
   border:0;
   border-radius:var(--radius);
   filter:grayscale(.25) contrast(1.05);
+}
+
+@media (max-width:640px){
+  /* double the mobile map height: half the width/height ratio of the
+     desktop 21/9 strip so it renders at ~2x the visible height at any
+     mobile width, instead of being clipped down to a thin sliver. */
+  .map-media{aspect-ratio:7/6;}
 }
 
 /* ---------- contact form ---------- */
