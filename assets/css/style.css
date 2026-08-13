@@ -784,6 +784,7 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
 .form-status{font-size:14px;font-weight:600;}
 .form-status.is-success{color:var(--success);}
 .form-status.is-error{color:var(--error);}
+.form-status-link{text-decoration:underline;text-underline-offset:2px;color:inherit;}
 .contact-form button[disabled]{opacity:.65;cursor:progress;}
 
 /* ---------- footer ---------- */

@@ -259,10 +259,25 @@
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(bodyLines.join("\n"));
 
-      statusEl.textContent = tt("contact.statusMailto", "Opening your email app with your message ready — just hit send there.");
-      statusEl.className = "form-status is-success";
+      // Trigger via a real <a> click rather than window.location.href — this is
+      // the more reliable way to invoke the OS/browser's mail-app handoff across
+      // browsers. Either way, if the visitor has no mail app registered (common
+      // on desktop without Outlook/Mail set as default), NOTHING will visibly
+      // happen and they'd otherwise seem stuck — so the status message always
+      // includes a real, clickable mailto link as a guaranteed manual fallback.
+      var trigger = document.createElement("a");
+      trigger.href = mailto;
+      trigger.rel = "noopener";
+      document.body.appendChild(trigger);
+      trigger.click();
+      trigger.remove();
 
-      window.location.href = mailto;
+      statusEl.innerHTML =
+        tt("contact.statusMailto", "Opening your email app with your message ready — just hit send there.") +
+        ' <a href="' + mailto + '" class="form-status-link">' +
+        tt("contact.statusMailtoFallback", "Didn't open? Click here to send it manually.") +
+        "</a>";
+      statusEl.className = "form-status is-success";
     });
   }
 
