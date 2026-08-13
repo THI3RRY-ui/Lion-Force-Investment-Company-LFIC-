@@ -1,4 +1,4 @@
-# Lion Force Investment Company Ltd — Website
+# Lion Force Investment Company Ltd , Website
 
 Plain HTML/CSS/JS, no build step. Four pages: `index.html` (Home),
 `about.html`, `services.html`, `contact.html`.
@@ -19,14 +19,14 @@ Contact page needs `http://` (not `file://`) to load.
 
 See `assets/images/README.md` for the exact filenames the site expects.
 Drop a matching file into `assets/images/` and it appears on the site
-immediately — no code edit required.
+immediately , no code edit required.
 
 ## Structure
 
 ```
 index.html / about.html / services.html / contact.html
 assets/
-  css/style.css   — design tokens, layout, components, animations
-  js/main.js      — nav, scroll reveal, sticky header, image placeholders
-  images/         — drop real photos here (see README.md inside)
+  css/style.css   , design tokens, layout, components, animations
+  js/main.js      , nav, scroll reveal, sticky header, image placeholders
+  images/         , drop real photos here (see README.md inside)
 ```

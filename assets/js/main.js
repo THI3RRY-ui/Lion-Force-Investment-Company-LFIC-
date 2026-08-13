@@ -1,4 +1,4 @@
-/* Lion Force Investment Company — shared site behavior */
+/* Lion Force Investment Company , shared site behavior */
 (function () {
   "use strict";
 
@@ -86,7 +86,7 @@
 
   /* ---------- typewriter headlines ----------
      Types the headline in, holds for 5s, deletes it letter by letter, then
-     retypes — looping for as long as the element exists. The text is always
+     retypes , looping for as long as the element exists. The text is always
      re-read from the data-typewriter attribute (rather than captured once),
      so a language change picked up by i18n.js restarts the cycle with the
      current-language text instead of finishing out a stale one. */
@@ -156,7 +156,7 @@
       );
       typeIo.observe(el);
 
-      // language switch changes the attribute — restart the loop with the new text
+      // language switch changes the attribute , restart the loop with the new text
       new MutationObserver(function () {
         if (started) runCycle();
       }).observe(el, { attributes: true, attributeFilter: ["data-typewriter"] });
@@ -228,7 +228,7 @@
   /* ---------- contact form: hand off to the user's own email app ----------
      Rather than posting to a third-party form backend, submit builds a
      mailto: link from the field values (subject + a readable body) and
-     navigates to it — the visitor's mail client (or webmail, if that's
+     navigates to it , the visitor's mail client (or webmail, if that's
      their OS/browser default) opens pre-filled, and they just hit send. */
   var contactForm = document.getElementById("contactForm");
   if (contactForm) {
@@ -259,11 +259,11 @@
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(bodyLines.join("\n"));
 
-      // Trigger via a real <a> click rather than window.location.href — this is
+      // Trigger via a real <a> click rather than window.location.href , this is
       // the more reliable way to invoke the OS/browser's mail-app handoff across
       // browsers. Either way, if the visitor has no mail app registered (common
       // on desktop without Outlook/Mail set as default), NOTHING will visibly
-      // happen and they'd otherwise seem stuck — so the status message always
+      // happen and they'd otherwise seem stuck , so the status message always
       // includes a real, clickable mailto link as a guaranteed manual fallback.
       var trigger = document.createElement("a");
       trigger.href = mailto;
@@ -273,7 +273,7 @@
       trigger.remove();
 
       statusEl.innerHTML =
-        tt("contact.statusMailto", "Opening your email app with your message ready — just hit send there.") +
+        tt("contact.statusMailto", "Opening your email app with your message ready , just hit send there.") +
         ' <a href="' + mailto + '" class="form-status-link">' +
         tt("contact.statusMailtoFallback", "Didn't open? Click here to send it manually.") +
         "</a>";

@@ -1,5 +1,5 @@
 /* ============================================================
-   Lion Force Investment Company Ltd — Design System
+   Lion Force Investment Company Ltd , Design System
    Light theme. Fonts: Fraunces (display) + Manrope (body/UI).
    ============================================================ */
 
@@ -10,7 +10,7 @@
   --surface-2:#f4f2ee;
   --surface-3:#eae7e0;
 
-  /* Ash (text + neutrals — warm grey, no green bias) */
+  /* Ash (text + neutrals , warm grey, no green bias) */
   --ink:#1c1b19;
   --ink-soft:#5f5c54;
   --ink-faint:#928e83;
@@ -330,7 +330,7 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
   .nav-lang:hover .lang-menu{max-height:0;}
   .nav-lang.is-open .lang-menu{max-height:140px;padding:4px 0 8px 12px;}
   /* the shared (desktop) hover/open rule below sets a translate() on .lang-menu
-     that outranks the plain "transform:none" above (3 classes vs. 1) — pin it
+     that outranks the plain "transform:none" above (3 classes vs. 1) , pin it
      back down so the dropdown stays put under the toggle instead of sliding
      off sideways over the page content. */
   .nav-lang:hover .lang-menu,
@@ -629,7 +629,7 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
 .icon-badge--sm{width:38px;height:38px;border-radius:10px;margin-bottom:0;}
 .icon-badge--sm svg{width:18px;height:18px;stroke-width:2;}
 
-/* ash variant — used where a second, still-neutral badge tone is wanted */
+/* ash variant , used where a second, still-neutral badge tone is wanted */
 .icon-badge--ash{background:var(--ash-tint);}
 .icon-badge--ash svg{stroke:var(--ink);}
 
