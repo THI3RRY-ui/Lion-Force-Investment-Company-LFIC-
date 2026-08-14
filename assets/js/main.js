@@ -64,7 +64,18 @@
   function probeExists(url, isVideo) {
     if (!CAN_FETCH_PROBE) return probeViaElement(url, isVideo);
     return fetch(url, { method: "HEAD" })
-      .then(function (res) { return res.ok ? url : null; })
+      .then(function (res) {
+        if (!res.ok) return null;
+        /* A 200 is NOT proof the file exists. Cloudflare Pages (and most
+           static hosts) answer a missing asset by serving their 404 page
+           with status 200 and Content-Type: text/html. Trusting the status
+           alone made every probe look like a hit, so the grid ran to the
+           full 99. Confirm the response is actually the media we asked for. */
+        var type = (res.headers.get("content-type") || "").toLowerCase();
+        if (!type) return url;                      // no header to judge by, trust the 200
+        if (type.indexOf("text/html") === 0) return null;   // the host's fallback page
+        return type.indexOf(isVideo ? "video/" : "image/") === 0 ? url : null;
+      })
       .catch(function () { return null; });
   }
 
