@@ -1261,6 +1261,64 @@ body.no-scroll{overflow:hidden;}
   .video-modal-dialog{border-radius:0;aspect-ratio:auto;height:100%;max-width:100%;}
 }
 
+/* ---------- loading skeletons ----------
+   Shown the moment the page renders, while the gallery works out which
+   files exist. Each variant mirrors the real card it stands in for, at
+   every breakpoint, so nothing jumps when the actual cards arrive. */
+@keyframes skeleton-shimmer{
+  0%{background-position:200% 0;}
+  100%{background-position:-200% 0;}
+}
+.skeleton-card{
+  border-radius:var(--radius);
+  background:linear-gradient(
+    100deg,
+    var(--surface-3) 30%,
+    var(--ash-tint) 48%,
+    var(--surface-3) 66%
+  );
+  background-size:200% 100%;
+  animation:skeleton-shimmer 1.4s linear infinite;
+}
+.skeleton-card--photo{aspect-ratio:1/1;}
+.skeleton-card--video,.skeleton-card--project{aspect-ratio:6/5;}
+/* the property cards carry an enquiry button underneath, so their
+   placeholder reserves that height too and the grid doesn't reflow */
+.skeleton-card--project{
+  margin-bottom:50px;
+  position:relative;
+}
+.skeleton-card--project::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-50px;
+  height:40px;
+  border-radius:999px;
+  background:var(--surface-3);
+}
+@media (max-width:640px){
+  .skeleton-card--video,.skeleton-card--project{aspect-ratio:1/1;}
+  .skeleton-card--project{margin-bottom:42px;}
+  .skeleton-card--project::after{bottom:-42px;height:34px;}
+}
+/* keep the shimmer on a photo card until that photo has actually decoded */
+.gallery-photo-card-wrap.is-loading .gallery-photo-card{
+  background:linear-gradient(
+    100deg,
+    var(--surface-3) 30%,
+    var(--ash-tint) 48%,
+    var(--surface-3) 66%
+  );
+  background-size:200% 100%;
+  animation:skeleton-shimmer 1.4s linear infinite;
+}
+.gallery-photo-card-wrap.is-loading img{opacity:0;}
+.gallery-photo-card-wrap img{transition:opacity .4s var(--ease);}
+@media (prefers-reduced-motion:reduce){
+  .skeleton-card,
+  .gallery-photo-card-wrap.is-loading .gallery-photo-card{animation:none;}
+}
+
 /* ---------- gallery: photo cards + lightbox ---------- */
 .gallery-photo-card{
   position:relative;

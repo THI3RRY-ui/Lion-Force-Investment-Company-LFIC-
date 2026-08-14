@@ -156,14 +156,47 @@
     urls.forEach(function (src, i) {
       var file = src.split("/").pop();
       var wrap = document.createElement("figure");
-      wrap.className = "gallery-photo-card-wrap reveal";
+      // is-loading keeps the shimmer on the card itself until this
+      // particular photo has actually decoded, so the card is never a
+      // blank hole while the image is still coming down.
+      wrap.className = "gallery-photo-card-wrap reveal is-loading";
       wrap.innerHTML =
         '<button type="button" class="gallery-photo-card" data-lightbox-index="' + i + '">' +
           '<img src="' + src + '" alt="Lion Force Investment Company gallery photo ' + (i + 1) + '" loading="lazy">' +
         '</button>' +
         galleryCardMenuHTML(src, file);
+      var img = wrap.querySelector("img");
+      var settle = function () { wrap.classList.remove("is-loading"); };
+      if (img.complete && img.naturalWidth) settle();
+      else {
+        img.addEventListener("load", settle, { once: true });
+        img.addEventListener("error", settle, { once: true });
+      }
       photoGrid.appendChild(wrap);
     });
+  }
+
+  /* ---------- loading skeletons ----------
+     Discovery is a round-trip per file, so on a slow connection the grids
+     would sit visibly empty and read as "there's nothing here". Drop in
+     shimmer placeholders straight away, then swap them for the real cards
+     once discovery resolves. */
+  var SKELETON_COUNT = 8;
+
+  function showSkeletons(grid, kind) {
+    if (!grid) return;
+    var html = "";
+    for (var i = 0; i < SKELETON_COUNT; i++) {
+      html += '<div class="skeleton-card skeleton-card--' + kind + '" aria-hidden="true"></div>';
+    }
+    grid.innerHTML = html;
+    grid.setAttribute("aria-busy", "true");
+  }
+
+  function clearSkeletons(grid) {
+    if (!grid) return;
+    grid.querySelectorAll(".skeleton-card").forEach(function (el) { el.remove(); });
+    grid.setAttribute("aria-busy", "false");
   }
 
   // The actual href is filled in by i18n.js from a translated template, so
@@ -203,6 +236,11 @@
   // cards are in the DOM. Those initialisers are written to be safe to
   // call twice , they skip anything they've already wired up.
   if (photoGrid || videoGrid || projectGrid) {
+    // paint placeholders before the first probe goes out
+    showSkeletons(photoGrid, "photo");
+    showSkeletons(videoGrid, "video");
+    showSkeletons(projectGrid, "project");
+
     Promise.all([
       photoGrid
         ? discoverSequence("assets/gallery/images/", "gallery-photo-", [".jpg", ".jpeg", ".png", ".webp"], false)
@@ -214,6 +252,9 @@
         ? discoverSequence("assets/gallery/existing-properties/", "project-video-", [".mp4", ".webm", ".mov"], true)
         : Promise.resolve([]),
     ]).then(function (results) {
+      clearSkeletons(photoGrid);
+      clearSkeletons(videoGrid);
+      clearSkeletons(projectGrid);
       if (photoGrid) renderPhotoCards(results[0]);
       if (videoGrid) renderVideoCards(results[1], videoGrid, "gallery.videoWord", false);
       if (projectGrid) renderVideoCards(results[2], projectGrid, "projects.propertyWord", true);
