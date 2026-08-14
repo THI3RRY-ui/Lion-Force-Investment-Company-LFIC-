@@ -8,6 +8,7 @@
 
   var LANG_KEY = "lfic-lang";
   var WHATSAPP_BASE = "https://wa.me/237681127498";
+  var CONTACT_EMAIL = "batejoel179@yahoo.com";
 
   var translations = {
     en: {
@@ -23,6 +24,8 @@
         toggleMenu: "Toggle menu",
         langEnglish: "English",
         langFrench: "Français",
+        switchToEnglish: "Switch to English",
+        switchToFrench: "Passer au français",
         backToTop: "Back to top",
         footerTagline: "A Cameroonian investment and business enterprise creating economic opportunities and lasting value across real estate, commerce, trade, industry, and human resources.",
         footerQuickLinks: "Quick Links",
@@ -216,6 +219,23 @@
         ctaTitle: "Interested in a property?",
         ctaLead: "Get in touch and we'll walk you through availability, pricing, and next steps."
       },
+      partner: {
+        eyebrow: "Partner With Us",
+        title: "Let's build something together.",
+        lead: "LFIC grows through partnership , with investors, landowners, suppliers, and professionals who share our commitment to doing business the right way. If that sounds like you, we'd like to hear from you.",
+        card1Title: "Investors",
+        card1Desc: "Put capital behind real estate and trade opportunities with clear terms, documented processes, and returns you can trace.",
+        card2Title: "Landowners & Property Partners",
+        card2Desc: "Have land or property to develop, sell, or manage? We handle verification, documentation, and bringing it to the right buyers.",
+        card3Title: "Suppliers & Contractors",
+        card3Desc: "Supply materials, equipment, or professional services for our contracts, construction, and logistics work across the South West.",
+        ctaLead: "Tell us which fits you and we'll take it from there.",
+        waBtn: "Discuss on WhatsApp",
+        waAria: "Discuss a partnership on WhatsApp",
+        waMessage: "Hello Lion Force Investment Company, I'd like to discuss a partnership with you. Here is what I have in mind:",
+        emailBtn: "Send a Partnership Email",
+        emailSubject: "Partnership enquiry , from the LFIC website"
+      },
       contact: {
         statementEyebrow: "Let's Talk",
         statementHeadline: "GET IN TOUCH",
@@ -265,6 +285,8 @@
         toggleMenu: "Basculer le menu",
         langEnglish: "English",
         langFrench: "Français",
+        switchToEnglish: "Switch to English",
+        switchToFrench: "Passer au français",
         backToTop: "Retour en haut",
         footerTagline: "Une entreprise camerounaise d'investissement et d'affaires créant des opportunités économiques et une valeur durable dans l'immobilier, le commerce, le négoce, l'industrie et les ressources humaines.",
         footerQuickLinks: "Liens Rapides",
@@ -461,6 +483,23 @@
         ctaTitle: "Une propriété vous intéresse ?",
         ctaLead: "Contactez-nous et nous vous guiderons sur la disponibilité, les prix et les prochaines étapes."
       },
+      partner: {
+        eyebrow: "Devenir Partenaire",
+        title: "Bâtissons quelque chose ensemble.",
+        lead: "LFIC grandit grâce au partenariat , avec des investisseurs, des propriétaires fonciers, des fournisseurs et des professionnels qui partagent notre engagement à faire des affaires correctement. Si cela vous ressemble, écrivez-nous.",
+        card1Title: "Investisseurs",
+        card1Desc: "Investissez dans des opportunités immobilières et commerciales avec des conditions claires, des processus documentés et des rendements traçables.",
+        card2Title: "Propriétaires Fonciers & Partenaires Immobiliers",
+        card2Desc: "Vous avez un terrain ou un bien à développer, vendre ou gérer ? Nous prenons en charge la vérification, les documents et la mise en relation avec les bons acheteurs.",
+        card3Title: "Fournisseurs & Prestataires",
+        card3Desc: "Fournissez matériaux, équipements ou services professionnels pour nos contrats, nos chantiers et notre logistique dans le Sud-Ouest.",
+        ctaLead: "Dites-nous ce qui vous correspond et nous prenons le relais.",
+        waBtn: "Discuter sur WhatsApp",
+        waAria: "Discuter d'un partenariat sur WhatsApp",
+        waMessage: "Bonjour Lion Force Investment Company, j'aimerais discuter d'un partenariat avec vous. Voici ce que j'ai en tête :",
+        emailBtn: "Envoyer un E-mail de Partenariat",
+        emailSubject: "Demande de partenariat , depuis le site de LFIC"
+      },
       contact: {
         statementEyebrow: "Discutons",
         statementHeadline: "CONTACTEZ-NOUS",
@@ -551,6 +590,11 @@
     /* WhatsApp deep links: the message is a translated template with a
        {item} placeholder (e.g. the property number), so the prefilled text
        follows the language the visitor picked, including after a switch. */
+    /* mailto links whose subject line follows the chosen language */
+    document.querySelectorAll("[data-i18n-mailto]").forEach(function (el) {
+      var subject = t(el.getAttribute("data-i18n-mailto"), lang);
+      el.setAttribute("href", "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject));
+    });
     document.querySelectorAll("[data-i18n-wa]").forEach(function (el) {
       var message = t(el.getAttribute("data-i18n-wa"), lang)
         .replace("{item}", el.getAttribute("data-wa-item") || "");

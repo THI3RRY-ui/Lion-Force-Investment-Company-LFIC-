@@ -243,6 +243,9 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
 }
 
 .nav-links{display:flex;align-items:center;gap:36px;}
+/* both shown only at mobile widths , see the 920px block below */
+.nav-link-mobile{display:none;}
+.lang-switch{display:none;}
 .nav-links a{
   position:relative;
   font-weight:600;
@@ -378,7 +381,71 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
   }
   .nav-links.is-open{transform:translateX(0);}
   .nav-links a{width:100%;padding:14px 0;font-size:17px;border-bottom:1px solid var(--line);}
+  /* the Get in Touch pill is hidden at this width, so the drawer carries
+     the same destination as a plain link , otherwise there'd be no route
+     to the contact page from the mobile nav at all */
   .nav-cta .btn--primary{display:none;}
+  .nav-links .nav-link-mobile{display:block;}
+
+  /* Language lives inside the drawer on mobile, which a French speaker
+     would never see if they just scroll. Surface it in the header itself
+     as a two-flag segmented toggle sitting beside the menu button. */
+  .nav-cta .lang-switch{
+    display:inline-flex;
+    align-items:center;
+    gap:2px;
+    flex:none;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:3px;
+  }
+  .nav-cta .lang-switch-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    width:auto;
+    padding:5px 9px;
+    border-radius:999px;
+    font-size:11.5px;
+    font-weight:800;
+    letter-spacing:.03em;
+    color:var(--ink-faint);
+    background:transparent;
+    transition:background var(--dur-fast), color var(--dur-fast);
+  }
+  .nav-cta .lang-switch-btn:hover{background:transparent;color:var(--ink-soft);}
+  .nav-cta .lang-switch-btn.is-active{
+    background:var(--surface);
+    color:var(--ink);
+    box-shadow:var(--shadow-sm);
+  }
+  .nav-cta .lang-switch-btn .lang-flag{
+    width:17px;height:12px;
+    flex:none;
+    border-radius:2px;
+    box-shadow:0 0 0 1px rgba(28,27,25,.14);
+    /* the inactive flag is dimmed so the chosen one reads as selected */
+    opacity:.45;
+    transition:opacity var(--dur-fast);
+  }
+  .nav-cta .lang-switch-btn.is-active .lang-flag{opacity:1;}
+  .nav-cta .lang-switch-btn .lang-check{display:none;}
+}
+@media (max-width:600px){
+  /* on phones the labels cost ~40px the brand name needs, and the two
+     flags carry the meaning on their own , keep the words for screen
+     readers via aria-label */
+  .nav-cta .lang-switch-btn span{
+    position:absolute;
+    width:1px;height:1px;
+    overflow:hidden;
+    clip-path:inset(50%);
+    white-space:nowrap;
+  }
+  .nav-cta .lang-switch-btn{padding:5px 8px;}
+  .nav-cta .lang-switch-btn .lang-flag{width:19px;height:13px;}
   .nav-toggle{display:flex;position:relative;z-index:70;}
   .nav-backdrop{
     position:fixed;inset:0;
@@ -611,7 +678,22 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
   .split-media .media{aspect-ratio:16/10;}
 }
 
-/* ---------- cards ---------- */
+/* Round logo-style media. The LFIC mark is a circle drawn on a square
+   canvas, so the default cover-crop inside a 4:5 box cut its top and
+   bottom off and read as "zoomed in". Square the frame, clip it to a
+   circle, and switch to contain so the whole mark is visible , the
+   white canvas corners fall outside the circular clip. Declared after
+   the breakpoint above so the 1:1 ratio holds at every width. */
+.split-media .media--round{aspect-ratio:1/1;}
+.media--round{
+  border-radius:50%;
+  background:var(--paper);
+  max-width:440px;
+  margin:0 auto;
+}
+.media--round img{object-fit:contain;}
+/* the photo scrim is meant for photographs , on a logo it just dirties it */
+.media--round::after{display:none;}
 .card{
   background:var(--surface);
   border:1px solid var(--line);
@@ -818,30 +900,33 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
 .team-specialists{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:16px;
-  max-width:920px;
+  gap:20px;
+  max-width:980px;
   margin:0 auto;
 }
 .team-chip{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:20px;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:999px;
-  padding:10px 22px 10px 10px;
+  padding:14px 30px 14px 14px;
   transition:transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), border-color var(--dur-fast);
 }
 .team-chip:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--accent-light);}
 .team-chip img{
-  width:62px;height:62px;
+  width:92px;height:92px;
   flex:none;
   border-radius:50%;
   object-fit:cover;
   object-position:center 22%;
+  /* a thin ring lifts the portrait off the white card */
+  box-shadow:0 0 0 3px var(--surface), 0 0 0 4px var(--line);
 }
-.team-chip h3{font-size:15px;line-height:1.3;margin-bottom:2px;}
-.team-chip p{font-size:12.5px;font-weight:600;color:var(--accent-dark);}
+.team-chip:hover img{box-shadow:0 0 0 3px var(--surface), 0 0 0 4px var(--accent-light);}
+.team-chip h3{font-size:17px;line-height:1.3;margin-bottom:3px;}
+.team-chip p{font-size:13.5px;font-weight:600;color:var(--accent-dark);}
 
 @media (max-width:860px){
   .team-lead{gap:18px;}
@@ -887,10 +972,10 @@ header.site-header.is-scrolled .nav{padding:12px 0;}
     font-size:9.5px;
     letter-spacing:.14em;
   }
-  .team-chip{padding:8px 16px 8px 8px;gap:12px;}
-  .team-chip img{width:52px;height:52px;}
-  .team-chip h3{font-size:13.5px;}
-  .team-chip p{font-size:11.5px;}
+  .team-chip{padding:11px 20px 11px 11px;gap:15px;}
+  .team-chip img{width:72px;height:72px;}
+  .team-chip h3{font-size:15px;}
+  .team-chip p{font-size:12.5px;}
 }
 
 /* founder / people card */
@@ -1398,6 +1483,41 @@ body.no-scroll{overflow:hidden;}
 }
 .gallery-card-menu-item svg{width:16px;height:16px;flex:none;}
 .gallery-card-menu-item:hover{background:var(--surface-2); color:var(--ink);}
+
+/* ---------- partnership section (contact) ---------- */
+.partner-card{
+  display:flex;
+  flex-direction:column;
+  transition:transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), border-color var(--dur-fast);
+}
+.partner-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--accent-light);}
+.partner-card h3{font-size:19px;margin-top:14px;}
+.partner-card p{margin-top:8px;}
+.partner-actions{
+  margin-top:34px;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:var(--surface-2);
+  text-align:center;
+}
+.partner-actions > p{
+  font-size:15.5px;
+  font-weight:600;
+  color:var(--ink-soft);
+  margin-bottom:18px;
+}
+.partner-actions-row{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+@media (max-width:560px){
+  .partner-actions{padding:20px 16px;}
+  .partner-actions-row{flex-direction:column;}
+  .partner-actions-row .btn{justify-content:center;width:100%;}
+}
 
 /* WhatsApp enquiry button under each property card */
 .wa-enquire{

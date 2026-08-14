@@ -46,6 +46,7 @@
       <a href="services.html" data-i18n="common.navServices">Services</a>
       <a href="gallery.html" data-i18n="common.navGallery">Gallery</a>
       <a href="projects.html" data-i18n="common.navProjects">Projects</a>
+      <a href="contact.html" class="nav-link-mobile" data-i18n="common.getInTouch">Get in Touch</a>
       <div class="nav-lang">
         <button type="button" class="lang-toggle" aria-haspopup="true" aria-expanded="false">
           <span data-i18n="common.navLanguage">Language</span>
@@ -66,6 +67,29 @@
     </nav>
     <div class="nav-cta">
       <a href="contact.html" class="btn btn--primary" data-i18n="common.getInTouch">Get in Touch</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-option lang-switch-btn is-active" data-lang="en" aria-label="Switch to English" data-i18n-aria-label="common.switchToEnglish">
+          <svg class="lang-flag" viewBox="0 0 60 30" aria-hidden="true">
+            <clipPath id="lfic-uk"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+            <g clip-path="url(#lfic-uk)">
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+            </g>
+          </svg>
+          <span>EN</span>
+        </button>
+        <button type="button" class="lang-option lang-switch-btn" data-lang="fr" aria-label="Passer au francais" data-i18n-aria-label="common.switchToFrench">
+          <svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true">
+            <rect width="1" height="2" fill="#002395"/>
+            <rect x="1" width="1" height="2" fill="#ffffff"/>
+            <rect x="2" width="1" height="2" fill="#ED2939"/>
+          </svg>
+          <span>FR</span>
+        </button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" data-i18n-aria-label="common.toggleMenu" aria-expanded="false">
         <svg viewBox="0 0 24 24" width="22" height="22">
           <line class="bar bar1" x1="3" y1="6" x2="21" y2="6"/>
@@ -93,7 +117,7 @@
   <section class="section">
     <div class="container split reveal">
       <div class="split-media">
-        <div class="media"><img src="assets/images/office-buea.jpg" data-ph="office-buea.jpg" alt="LFIC office in Clerks Quarters, Buea" loading="lazy"></div>
+        <div class="media media--round"><img src="assets/images/office-buea.jpg" data-ph="office-buea.jpg" alt="Lion Force Investment Company Ltd logo" loading="lazy"></div>
       </div>
       <div class="split-copy">
         <span class="eyebrow" data-i18n="about.storyEyebrow">Our Story</span>
