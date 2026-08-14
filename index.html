@@ -75,7 +75,8 @@
       <a href="index.html" data-i18n="common.navHome">Home</a>
       <a href="about.html" data-i18n="common.navAbout">About</a>
       <a href="services.html" data-i18n="common.navServices">Services</a>
-      <a href="contact.html" data-i18n="common.navContact">Contact</a>
+      <a href="gallery.html" data-i18n="common.navGallery">Gallery</a>
+      <a href="projects.html" data-i18n="common.navProjects">Projects</a>
       <div class="nav-lang">
         <button type="button" class="lang-toggle" aria-haspopup="true" aria-expanded="false">
           <span data-i18n="common.navLanguage">Language</span>
@@ -151,7 +152,7 @@
         <h2 data-i18n="home.servicesTitle">Seven sectors. One commitment to lasting value.</h2>
         <p class="text-lead" style="margin:0 auto;" data-i18n="home.servicesLead">From land and property to trade, industry, and people , every service LFIC offers is built to create real, lasting value.</p>
       </div>
-      <div class="grid grid--3 reveal-stagger">
+      <div class="grid grid--3 grid--services reveal-stagger">
         <a href="services.html#real-estate" class="service-card reveal" style="--i:0">
           <div class="media"><img src="assets/images/service-real-estate.jpg" data-ph="service-real-estate.jpg" alt="Real estate and investment services" loading="lazy"></div>
           <div class="service-card-body">
@@ -247,7 +248,7 @@
         </div>
       </div>
       <div class="split-media">
-        <button type="button" class="video-card" id="videoTrigger" aria-haspopup="dialog" aria-label="Play video" data-i18n-aria-label="home.videoAria">
+        <button type="button" class="video-card" aria-haspopup="dialog" aria-label="Play video" data-i18n-aria-label="home.videoAria">
           <video class="video-card-preview" data-src="assets/videos/explanation-video.mp4" muted loop playsinline preload="none"></video>
           <span class="video-card-scrim"></span>
           <span class="video-card-play">
@@ -258,6 +259,105 @@
             <span data-i18n="home.videoSub">See how LFIC turns opportunity into investment.</span>
           </span>
         </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow" data-i18n="home.teamEyebrow">Our People</span>
+        <h2 data-i18n="home.teamTitle">The management team behind LFIC.</h2>
+        <p class="text-lead" style="margin:0 auto;" data-i18n="home.teamLead">Leadership, partners, and specialists working together to turn opportunity into lasting value.</p>
+      </div>
+
+      <!-- Tier 1 , leadership: two large feature portraits -->
+      <div class="team-lead reveal">
+        <article class="team-figure team-figure--lead">
+          <div class="team-figure-media">
+            <img src="assets/gallery/management/bate-joel-enow.jpeg" alt="Bate Joel Enow, Founder and CEO of LFIC" loading="lazy">
+          </div>
+          <div class="team-figure-body">
+            <span class="team-rank" data-i18n="home.teamRankLeadership">Leadership</span>
+            <h3>Mr. Bate Joel Enow</h3>
+            <p data-i18n="home.roleFounderCeo">Founder &amp; CEO</p>
+          </div>
+        </article>
+        <article class="team-figure team-figure--lead">
+          <div class="team-figure-media">
+            <img src="assets/gallery/management/henrietta-ansahmbom-mbain.jpeg" alt="Henrietta Ansahmbom Mbain, Co-Founder and Daily Operations Manager" loading="lazy">
+          </div>
+          <div class="team-figure-body">
+            <span class="team-rank" data-i18n="home.teamRankLeadership">Leadership</span>
+            <h3>Mrs. Henrietta Ansahmbom Mbain</h3>
+            <p data-i18n="home.roleCofounder">Co-Founder &amp; Daily Operations Manager</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Tier 2 , partners: three staggered portraits -->
+      <div class="team-tier-label reveal"><span data-i18n="home.teamRankPartners">Partners</span></div>
+      <div class="team-partners reveal-stagger">
+        <article class="team-figure team-figure--partner reveal" style="--i:0">
+          <div class="team-figure-media">
+            <img src="assets/gallery/management/rosaline-mbain.jpeg" alt="Dr. Rosaline Mbain, Partner at LFIC" loading="lazy">
+          </div>
+          <div class="team-figure-body">
+            <h3>Dr. Rosaline Mbain</h3>
+            <p data-i18n="home.rolePartner">Partner</p>
+          </div>
+        </article>
+        <article class="team-figure team-figure--partner reveal" style="--i:1">
+          <div class="team-figure-media">
+            <img src="assets/gallery/management/raymonda-nafoin-mbain.jpeg" alt="Raymonda Nafoin Mbain, Partner at LFIC" loading="lazy">
+          </div>
+          <div class="team-figure-body">
+            <h3>Mrs. Raymonda Nafoin Mbain</h3>
+            <p data-i18n="home.rolePartner">Partner</p>
+          </div>
+        </article>
+        <article class="team-figure team-figure--partner reveal" style="--i:2">
+          <div class="team-figure-media">
+            <img src="assets/gallery/management/ewang-miriam-mechane.jpeg" alt="Ewang Miriam Mechane, Partner at LFIC" loading="lazy">
+          </div>
+          <div class="team-figure-body">
+            <h3>Ewang Miriam Mechane</h3>
+            <p data-i18n="home.rolePartner">Partner</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Tier 3 , specialists: compact horizontal cards -->
+      <div class="team-tier-label reveal"><span data-i18n="home.teamRankSpecialists">Specialists &amp; Advisors</span></div>
+      <div class="team-specialists reveal-stagger">
+        <article class="team-chip reveal" style="--i:0">
+          <img src="assets/gallery/management/agbor-ernest-tambia.jpeg" alt="Agbor Ernest Tambia, Legal Advisor" loading="lazy">
+          <div>
+            <h3>Barrister Agbor Ernest Tambia</h3>
+            <p data-i18n="home.roleLegal">Legal Advisor</p>
+          </div>
+        </article>
+        <article class="team-chip reveal" style="--i:1">
+          <img src="assets/gallery/management/sally-nanyongo-nalionge-mbua.jpeg" alt="Sally Nanyongo Nalionge Mbua, Communications and Marketing Engineer" loading="lazy">
+          <div>
+            <h3>Sally Nanyongo Nalionge Mbua</h3>
+            <p data-i18n="home.roleComms">Communications &amp; Marketing Engineer</p>
+          </div>
+        </article>
+        <article class="team-chip reveal" style="--i:2">
+          <img src="assets/gallery/management/bissong-david-enow.jpeg" alt="Bissong David Enow, Civil Engineer" loading="lazy">
+          <div>
+            <h3>Bissong David Enow</h3>
+            <p data-i18n="home.roleCivil">Civil Engineer</p>
+          </div>
+        </article>
+        <article class="team-chip reveal" style="--i:3">
+          <img src="assets/gallery/management/ako-arrey.jpeg" alt="Ako Arrey, Surveyor" loading="lazy">
+          <div>
+            <h3>Ako Arrey</h3>
+            <p data-i18n="home.roleSurveyor">Surveyor</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -297,6 +397,8 @@
           <a href="index.html" data-i18n="common.navHome">Home</a>
           <a href="about.html" data-i18n="common.navAbout">About</a>
           <a href="services.html" data-i18n="common.navServices">Services</a>
+          <a href="gallery.html" data-i18n="common.navGallery">Gallery</a>
+          <a href="projects.html" data-i18n="common.navProjects">Projects</a>
           <a href="contact.html" data-i18n="common.navContact">Contact</a>
         </div>
       </div>
@@ -339,7 +441,7 @@
     <button type="button" class="video-modal-close" data-close-video aria-label="Close video" data-i18n-aria-label="home.videoCloseAria">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
-    <video class="video-modal-player" id="videoPlayer" data-src="assets/videos/explanation-video.mp4" controls playsinline></video>
+    <video class="video-modal-player" id="videoPlayer" controls playsinline></video>
   </div>
 </div>
 

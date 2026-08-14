@@ -7,6 +7,7 @@
   "use strict";
 
   var LANG_KEY = "lfic-lang";
+  var WHATSAPP_BASE = "https://wa.me/237681127498";
 
   var translations = {
     en: {
@@ -14,6 +15,8 @@
         navHome: "Home",
         navAbout: "About",
         navServices: "Services",
+        navGallery: "Gallery",
+        navProjects: "Projects",
         navContact: "Contact",
         navLanguage: "Language",
         getInTouch: "Get in Touch",
@@ -44,6 +47,10 @@
         aboutDesc: "Learn who LFIC is , our story, vision, mission, core values, and the founder behind Lion Force Investment Company Limited in Buea, Cameroon.",
         servicesTitle: "Our Services | Lion Force Investment Company Ltd",
         servicesDesc: "Real estate & investment, general commerce, contracts & supplies, import & export, wood processing & metal works, manpower & HR, and logistics , explore LFIC's seven service sectors.",
+        galleryTitle: "Gallery | Lion Force Investment Company Ltd",
+        galleryDesc: "Browse photos and videos from Lion Force Investment Company Limited , Existing Projects, sites, and team at work in Buea, Cameroon.",
+        projectsTitle: "Existing Projects | Lion Force Investment Company Ltd",
+        projectsDesc: "Tour existing properties and completed projects by Lion Force Investment Company Limited in Buea, Cameroon , in video.",
         contactTitle: "Contact Us | Lion Force Investment Company Ltd",
         contactDesc: "Get in touch with Lion Force Investment Company Limited , Clerks Quarters, Buea, South West Region, Cameroon. Call, email, or find us on the map."
       },
@@ -85,6 +92,19 @@
         videoSub: "See how LFIC turns opportunity into investment.",
         videoModalAria: "Video player",
         videoCloseAria: "Close video",
+        teamEyebrow: "Our People",
+        teamTitle: "The management team behind LFIC.",
+        teamLead: "Leadership, partners, and specialists working together to turn opportunity into lasting value.",
+        teamRankLeadership: "Leadership",
+        teamRankPartners: "Partners",
+        teamRankSpecialists: "Specialists & Advisors",
+        roleFounderCeo: "Founder & CEO",
+        roleCofounder: "Co-Founder & Daily Operations Manager",
+        rolePartner: "Partner",
+        roleLegal: "Legal Advisor",
+        roleComms: "Communications & Marketing Engineer",
+        roleCivil: "Civil Engineer",
+        roleSurveyor: "Surveyor",
         ctaTitle: "Building Opportunities, Delivering Value.",
         ctaLead: "Tell us what you're trying to build, buy, move, or grow , LFIC is ready to help.",
         ctaBtn: "Contact Us"
@@ -158,6 +178,44 @@
         ctaTitle: "Not sure which service fits?",
         ctaLead: "Reach out and describe what you need , we'll point you to the right team."
       },
+      gallery: {
+        statementEyebrow: "See LFIC In Action",
+        statementHeadline: "GALLERY",
+        statementSub: "A look at Existing Projects, sites, and team at work , in pictures and video.",
+        photosEyebrow: "Photos",
+        photosTitle: "Moments from the field.",
+        photosLead: "A closer look at LFIC's work, people, and projects around Buea.",
+        videosEyebrow: "Videos",
+        videosTitle: "See LFIC in motion.",
+        videosLead: "Watch highlights from Existing Projects and day-to-day operations.",
+        videoWord: "Video",
+        videoSub: "Tap to play",
+        videoAria: "Play video",
+        photoAlt: "Lion Force Investment Company gallery photo",
+        lightboxCloseAria: "Close photo viewer",
+        lightboxPrevAria: "Previous photo",
+        lightboxNextAria: "Next photo",
+        moreOptionsAria: "More options",
+        download: "Download",
+        share: "Share",
+        linkCopied: "Link copied!",
+        ctaTitle: "Want to see more?",
+        ctaLead: "Follow us on social media for the latest updates, or reach out directly."
+      },
+      projects: {
+        statementEyebrow: "What We've Built",
+        statementHeadline: "Existing Projects",
+        statementSub: "Existing properties and completed developments , walk through each one on video.",
+        propertiesEyebrow: "Existing Properties",
+        propertiesTitle: "Take a walk through our properties.",
+        propertiesLead: "Tap any property to watch the full walkthrough, or use the menu on a card to download it.",
+        propertyWord: "Property",
+        enquireBtn: "Enquire on WhatsApp",
+        enquireAria: "Enquire about this property on WhatsApp",
+        enquireMessage: "Hello Lion Force Investment Company, I saw Property {item} on your website and I'd like to know more about it , availability, price, and location. Thank you.",
+        ctaTitle: "Interested in a property?",
+        ctaLead: "Get in touch and we'll walk you through availability, pricing, and next steps."
+      },
       contact: {
         statementEyebrow: "Let's Talk",
         statementHeadline: "GET IN TOUCH",
@@ -199,6 +257,8 @@
         navHome: "Accueil",
         navAbout: "À Propos",
         navServices: "Services",
+        navGallery: "Galerie",
+        navProjects: "Projets",
         navContact: "Contact",
         navLanguage: "Langue",
         getInTouch: "Nous Contacter",
@@ -229,6 +289,10 @@
         aboutDesc: "Découvrez qui est LFIC , notre histoire, notre vision, notre mission, nos valeurs fondamentales et le fondateur de Lion Force Investment Company Limited à Buea, Cameroun.",
         servicesTitle: "Nos Services | Lion Force Investment Company Ltd",
         servicesDesc: "Immobilier & investissement, commerce général, contrats & fournitures, import-export, transformation du bois & métallurgie, main-d'œuvre & RH, et logistique , découvrez les sept secteurs de services de LFIC.",
+        galleryTitle: "Galerie | Lion Force Investment Company Ltd",
+        galleryDesc: "Parcourez les photos et vidéos de Lion Force Investment Company Limited , nos projets, nos sites et notre équipe au travail à Buea, Cameroun.",
+        projectsTitle: "Nos Projets | Lion Force Investment Company Ltd",
+        projectsDesc: "Découvrez en vidéo les propriétés existantes et les projets réalisés par Lion Force Investment Company Limited à Buea, Cameroun.",
         contactTitle: "Contact | Lion Force Investment Company Ltd",
         contactDesc: "Contactez Lion Force Investment Company Limited , Clerks Quarters, Buea, Région du Sud-Ouest, Cameroun. Appelez, écrivez, ou trouvez-nous sur la carte."
       },
@@ -273,6 +337,19 @@
         videoSub: "Découvrez comment LFIC transforme l'opportunité en investissement.",
         videoModalAria: "Lecteur vidéo",
         videoCloseAria: "Fermer la vidéo",
+        teamEyebrow: "Notre Équipe",
+        teamTitle: "L'équipe de direction derrière LFIC.",
+        teamLead: "Direction, partenaires et spécialistes travaillant ensemble pour transformer l'opportunité en valeur durable.",
+        teamRankLeadership: "Direction",
+        teamRankPartners: "Partenaires",
+        teamRankSpecialists: "Spécialistes & Conseillers",
+        roleFounderCeo: "Fondateur & PDG",
+        roleCofounder: "Cofondatrice & Responsable des Opérations Quotidiennes",
+        rolePartner: "Partenaire",
+        roleLegal: "Conseiller Juridique",
+        roleComms: "Ingénieure Communication & Marketing",
+        roleCivil: "Ingénieur Civil",
+        roleSurveyor: "Géomètre",
         ctaTitle: "Bâtir des Opportunités, Livrer de la Valeur.",
         ctaLead: "Dites-nous ce que vous essayez de bâtir, d'acheter, de déplacer ou de développer , LFIC est prêt à vous aider.",
         ctaBtn: "Nous Contacter"
@@ -345,6 +422,44 @@
         svc7Desc: "Nous fournissons des solutions logistiques conçues pour faciliter le mouvement, le stockage et la distribution efficaces des marchandises tout en assurant une prestation de service ponctuelle et rentable.",
         ctaTitle: "Vous ne savez pas quel service vous convient ?",
         ctaLead: "Contactez-nous et décrivez vos besoins , nous vous orienterons vers la bonne équipe."
+      },
+      gallery: {
+        statementEyebrow: "LFIC En Action",
+        statementHeadline: "GALERIE",
+        statementSub: "Un aperçu de nos projets, nos sites et notre équipe au travail , en photos et en vidéo.",
+        photosEyebrow: "Photos",
+        photosTitle: "Des moments sur le terrain.",
+        photosLead: "Un regard sur le travail, les équipes et les projets de LFIC autour de Buea.",
+        videosEyebrow: "Vidéos",
+        videosTitle: "LFIC en mouvement.",
+        videosLead: "Regardez les temps forts de nos projets et de nos activités quotidiennes.",
+        videoWord: "Vidéo",
+        videoSub: "Appuyez pour lire",
+        videoAria: "Lire la vidéo",
+        photoAlt: "Photo de la galerie Lion Force Investment Company",
+        lightboxCloseAria: "Fermer la visionneuse photo",
+        lightboxPrevAria: "Photo précédente",
+        lightboxNextAria: "Photo suivante",
+        moreOptionsAria: "Plus d'options",
+        download: "Télécharger",
+        share: "Partager",
+        linkCopied: "Lien copié !",
+        ctaTitle: "Envie d'en voir plus ?",
+        ctaLead: "Suivez-nous sur les réseaux sociaux pour les dernières actualités, ou contactez-nous directement."
+      },
+      projects: {
+        statementEyebrow: "Ce Que Nous Avons Bâti",
+        statementHeadline: "NOS PROJETS",
+        statementSub: "Propriétés existantes et réalisations achevées , découvrez chacune d'elles en vidéo.",
+        propertiesEyebrow: "Propriétés Existantes",
+        propertiesTitle: "Visitez nos propriétés.",
+        propertiesLead: "Appuyez sur une propriété pour voir la visite complète, ou utilisez le menu de la carte pour la télécharger.",
+        propertyWord: "Propriété",
+        enquireBtn: "Contacter sur WhatsApp",
+        enquireAria: "Se renseigner sur cette propriété via WhatsApp",
+        enquireMessage: "Bonjour Lion Force Investment Company, j'ai vu la Propriété {item} sur votre site et j'aimerais en savoir plus , disponibilité, prix et emplacement. Merci.",
+        ctaTitle: "Une propriété vous intéresse ?",
+        ctaLead: "Contactez-nous et nous vous guiderons sur la disponibilité, les prix et les prochaines étapes."
       },
       contact: {
         statementEyebrow: "Discutons",
@@ -432,6 +547,14 @@
     });
     document.querySelectorAll("[data-i18n-content]").forEach(function (el) {
       el.setAttribute("content", t(el.getAttribute("data-i18n-content"), lang));
+    });
+    /* WhatsApp deep links: the message is a translated template with a
+       {item} placeholder (e.g. the property number), so the prefilled text
+       follows the language the visitor picked, including after a switch. */
+    document.querySelectorAll("[data-i18n-wa]").forEach(function (el) {
+      var message = t(el.getAttribute("data-i18n-wa"), lang)
+        .replace("{item}", el.getAttribute("data-wa-item") || "");
+      el.setAttribute("href", WHATSAPP_BASE + "?text=" + encodeURIComponent(message));
     });
 
     document.querySelectorAll(".lang-option").forEach(function (opt) {
